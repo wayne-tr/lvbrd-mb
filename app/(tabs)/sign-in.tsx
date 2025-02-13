@@ -1,12 +1,18 @@
 import React, { useState } from "react";
-import { StyleSheet, View, TextInput } from "react-native";
+import { StyleSheet, View, TextInput, Pressable } from "react-native";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import Checkbox from "expo-checkbox";
+import { router } from "expo-router";
 
-export default function SignInTab() {
+export default function SignInPage() {
   const [email, setEmail] = useState("");
   const [isChecked, setIsChecked] = useState(false);
+
+  const handleSubmit = () => {
+    // Add validation here if needed
+    router.push("/get-started");
+  };
 
   return (
     <ThemedView style={styles.container}>
@@ -40,6 +46,10 @@ export default function SignInTab() {
           <ThemedText style={styles.link}>Privacy Policy</ThemedText>
         </ThemedText>
       </View>
+
+      <Pressable style={styles.submitButton} onPress={handleSubmit}>
+        <ThemedText style={styles.submitText}>SUBMIT</ThemedText>
+      </Pressable>
     </ThemedView>
   );
 }
@@ -69,11 +79,14 @@ const styles = StyleSheet.create({
     color: "#FFFFFF",
     fontSize: 16,
     marginBottom: 24,
+    borderBottomWidth: 1,
+    borderBottomColor: "#8B5CF6",
   },
   checkboxContainer: {
     flexDirection: "row",
     alignItems: "flex-start",
     gap: 12,
+    marginBottom: 32,
   },
   checkbox: {
     marginTop: 4,
@@ -86,5 +99,21 @@ const styles = StyleSheet.create({
   link: {
     color: "#8B5CF6",
     textDecorationLine: "underline",
+  },
+  submitButton: {
+    backgroundColor: "#8B5CF6",
+    borderRadius: 25,
+    padding: 16,
+    alignItems: "center",
+    height: 56,
+    justifyContent: "center",
+    marginTop: "auto",
+    marginBottom: 24,
+  },
+  submitText: {
+    color: "#FFFFFF",
+    fontSize: 16,
+    fontWeight: "600",
+    letterSpacing: 1,
   },
 });
