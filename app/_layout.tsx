@@ -13,13 +13,12 @@ export default function RootLayout() {
           backgroundColor: Colors[colorScheme ?? "light"].background,
         },
         headerTintColor: Colors[colorScheme ?? "light"].tint,
-        headerShown: false,
       }}
     >
-      <Stack.Screen name="index" />
-      <Stack.Screen name="sign-in" />
-      <Stack.Screen name="confirm" />
-      <Stack.Screen name="get-started" />
+      <Stack.Screen name="index" options={{ title: "Home" }} />
+      <Stack.Screen name="sign-in" options={{ title: "Sign In" }} />
+      <Stack.Screen name="confirm" options={{ title: "Confirm" }} />
+      <Stack.Screen name="get-started" options={{ title: "Get Started" }} />
     </Stack>
   );
 }
