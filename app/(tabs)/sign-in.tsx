@@ -11,7 +11,7 @@ export default function SignInPage() {
 
   const handleSubmit = () => {
     // Add validation here if needed
-    router.push("/get-started");
+    router.push("/confirm");
   };
 
   return (

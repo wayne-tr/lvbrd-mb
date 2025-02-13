@@ -18,6 +18,7 @@ export default function RootLayout() {
     >
       <Stack.Screen name="index" />
       <Stack.Screen name="sign-in" />
+      <Stack.Screen name="confirm" />
       <Stack.Screen name="get-started" />
     </Stack>
   );
